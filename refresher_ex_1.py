@@ -220,11 +220,32 @@ for e in sentence_list:
 # GENERAL-PURPOSE
 # programming
 # LANGUAGE
+
 print("start of part 3") # set breakpoint here
-# your code here
+punct = ',.'
+wordList = s.split(' ')[:-1] # [:-1] to get rid of random period
+length = len(wordList)
+words = ""
+noPunct = ""
 
+for i, word in enumerate(wordList):
+    if i % 2 == 0: # If index is even, leave word as is
+        words += word 
+        if i < length-1:
+            words += "\n" 
+    else:          # If index is odd, convert word to uppercase 
+        second = word.upper()
+        words += second
+        if i < length-1:
+            words += "\n"      
 
-print("end of 3") # set breakpoint here 
+for x in words:
+    if x not in punct:      # Removing punctuation from list
+        noPunct = noPunct+x
+
+print(noPunct)
+
+print("end of 3 \n") # set breakpoint here 
 '''
 
 
