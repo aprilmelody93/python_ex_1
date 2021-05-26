@@ -160,9 +160,18 @@ print(newL) # [0, 2, 3, [5, 6], 8, 10]
 #  Its language constructs and object-oriented approach aim to help programmers ...
 print("start of part 2") # set breakpoint here
 s = "Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects."
-# your code here
 
-print("end of 2") # set breakpoint here 
+strList = s.split('.')[:-1] # [:-1] to get rid of random period
+length = len(strList)
+sentences = " "
+
+for i, str in enumerate(strList):
+    sentences += str + '. ' # Added a space after period so that all sentences start at the same position
+    if i < length-1:
+        sentences += "\n" # Does not add a new line on the last line
+print(sentences) 
+
+print("end of 2\n") # set breakpoint here 
 '''
 
 
