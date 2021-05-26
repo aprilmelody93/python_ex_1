@@ -317,10 +317,27 @@ for w in words:
 # result would not be longer than s!
 # call your function a couple of times with different parameters and also test edge cases
 print("start of part 4") # set breakpoint here
-s = "A very long description" # a long string
-filler = "..."
-# your code here
 
+testSentences = [
+"Arbitrary Kword Arguments are often shortened to **kwargs in Python documentations.", 
+"All we have to decide is what to do with the time that is given us.", 
+"Hello!", 
+"The Answer to the ultimate question of Life, The Universe and Everything is 42!",
+"If you know.",
+"Not all those who wander are lost."
+] # Testing an array of strings
+
+filler = "..."
+
+def abbr(x):
+    length = len(x)
+    if length <= 15:    # Setting max width of char at 15
+        print(x)     
+    else: 
+        print(x[:5],filler,x[-5:], sep='')  # sep gets rid of spaces
+
+for x in testSentences:     # loop through array of test sentences
+    abbr(x)
 
 print("end of 4") # set breakpoint here 
 '''
