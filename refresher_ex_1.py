@@ -316,28 +316,24 @@ for w in words:
 # to total_width chars and uses the string filler in between them. Again, make sure the
 # result would not be longer than s!
 # call your function a couple of times with different parameters and also test edge cases
+
 print("start of part 4") # set breakpoint here
 
-testSentences = [
-"Arbitrary Kword Arguments are often shortened to **kwargs in Python documentations.", 
-"All we have to decide is what to do with the time that is given us.", 
-"Hello!", 
-"The Answer to the ultimate question of Life, The Universe and Everything is 42!",
-"If you know.",
-"Not all those who wander are lost."
-] # Testing an array of strings
-
+test = "Not all who wander are lost." 
 filler = "..."
+length = len(test)                                              # determining length of actual sentence
 
-def abbr(x):
-    length = len(x)
-    if length <= 15:    # Setting max width of char at 15
-        print(x)     
-    else: 
-        print(x[:5],filler,x[-5:], sep='')  # sep gets rid of spaces
-
-for x in testSentences:     # loop through array of test sentences
-    abbr(x)
+def abbr(test):
+    x = 5                                                       # set x = 5  
+    while x <= 15:                                              # loop until x = 15
+        if (x * 2) + 3 < length:                                # if abbr. length is less than actual length             
+            abbrSentence = test[:x] + filler + test[-x:]        
+            print("x =", x, "\t", abbrSentence)                 # print abbr. sentence
+            x += 1                                              # increase x by 1
+        else:                                                   # if actual length is less than abbr. length
+            print(test)                                         # print actual length; break out of loop
+            break                      
+abbr(test)
 
 print("end of 4") # set breakpoint here 
 '''
